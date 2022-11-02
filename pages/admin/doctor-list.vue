@@ -1,0 +1,558 @@
+<template>
+<div>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+    <div class="content container-fluid">
+    
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-end">
+                    <div class="doc-badge me-3">Doctors <span class="ms-1">48</span></div>
+                    <div class="SortBy">
+                        <div class="selectBoxes order-by">
+                            <p class="mb-0"><img src="../../assets/admin_img/icon/sort.png" class="me-2" alt="icon"> Order by </p>
+                            <span class="down-icon"><chevron-down-icon size="1.4x" class="custom-class"></chevron-down-icon></span>
+                        </div>						  
+                        <div id="checkBox">
+                            <form>
+                                <p class="lab-title">Specialities</p>
+                                <label class="custom_radio w-100">
+                                    <input type="radio" name="year">
+                                    <span class="checkmark"></span> Number of Appointment
+                                </label>
+                                <label class="custom_radio w-100">
+                                    <input type="radio" name="year">
+                                    <span class="checkmark"></span> Total Income
+                                </label>
+                                <label class="custom_radio w-100 mb-4">
+                                    <input type="radio" name="year">
+                                    <span class="checkmark"></span> Ratings
+                                </label>
+                                <p class="lab-title">Sort By</p>
+                                <label class="custom_radio w-100">
+                                    <input type="radio" name="sort">
+                                    <span class="checkmark"></span> Ascending
+                                </label>
+                                <label class="custom_radio w-100 mb-4">
+                                    <input type="radio" name="sort">
+                                    <span class="checkmark"></span> Descending
+                                </label>
+                                <NuxtLink to="/admin/doctor-list">
+                                <button type="submit" class="btn w-100 btn-primary">Apply</button>
+                                </NuxtLink>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        
+        <!-- Doctor List -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="card-title">Doctors</h5>
+                            </div>
+                            <div class="col-auto d-flex flex-wrap">
+                                <div class="form-custom me-2">
+                                    <div id="tableSearch"  class="dataTables_wrapper"></div>
+                                </div>
+                                <div class="multipleSelection">
+                                    <div class="selectBox">
+                                        <p class="mb-0 me-2"><filter-icon size="1.4x" class="custom-class me-1"></filter-icon> Filter By Speciality </p>
+                                        <span class="down-icon"><chevron-down-icon size="1.4x" class="custom-class"></chevron-down-icon></span>
+                                    </div>						  
+                                    <div id="checkBoxes">
+                                        <form>
+                                            <p class="lab-title">Specialities</p>
+                                            <div class="selectBox-cont">
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year" checked>
+                                                    <span class="checkmark"></span> Urology
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year">
+                                                    <span class="checkmark"></span> Neurology
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year">
+                                                    <span class="checkmark"></span> Orthopedic
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year">
+                                                    <span class="checkmark"></span> Cardiologist
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year">
+                                                    <span class="checkmark"></span> Dentist
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year">
+                                                    <span class="checkmark"></span> Gynacologist
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year">
+                                                    <span class="checkmark"></span> Pediatrist
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" name="year">
+                                                    <span class="checkmark"></span> Orthopedic
+                                                </label>
+                                            </div>
+                                            <NuxtLink to="/admin/doctor-list">
+                                            <button type="submit" class="btn w-100 btn-primary">Apply</button>
+                                        </NuxtLink>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">				
+                        <div class="table-responsive">									
+                            <table class="datatable table table-borderless hover-table" id="data-table">
+                                <thead class="thead-light">
+                                    <tr>
+                                       <th>ID</th>
+                                       <th>Doctor</th>
+                                       <th>Specialities</th>
+                                       <th>Member Since</th>
+                                       <th>Number of Appointments</th>
+                                       <th>Total Income</th>
+                                       <th>Account Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#4546</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="avatar-pos" href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><img class="avatar avatar-img" src="../../assets/admin_img/profiles/avatar-05.jpg" alt="User Image"></a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. Rayan</a>
+                                            </h2>
+                                        </td>
+                                        <td>Gyanoclogist</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>545</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status1">
+                                                <input type="checkbox" class="toggle-switch-input" id="status1">
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#8774</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="avatar-pos"  href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><img class="avatar avatar-img" src="../../assets/admin_img/profiles/avatar-02.jpg" alt="User Image"></a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. Monroe</a>
+                                            </h2>
+                                        </td>
+                                        <td>Hair Specialities</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>654</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status2">
+                                                <input type="checkbox" class="toggle-switch-input" id="status2" checked>
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#4546</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="avatar-pos" href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><img class="avatar avatar-img" src="../../assets/admin_img/profiles/avatar-07.jpg" alt="User Image"></a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. Lester</a>
+                                            </h2>
+                                        </td>
+                                        <td>Orthopaedics</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>787</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status3">
+                                                <input type="checkbox" class="toggle-switch-input" id="status3" checked>
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#4546</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="empty-user" href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><user-icon size="1.4x" class="custom-class"></user-icon> </a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. Clint</a>
+                                            </h2>
+                                        </td>
+                                        <td>Orthopaedics</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>454</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status4">
+                                                <input type="checkbox" class="toggle-switch-input" id="status4" checked>
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3456</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="avatar-pos" href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><img class="avatar avatar-img" src="../../assets/admin_img/profiles/avatar-12.jpg" alt="User Image"></a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. John</a>
+                                            </h2>
+                                        </td>
+                                        <td>Neurologist</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>545</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status5">
+                                                <input type="checkbox" class="toggle-switch-input" id="status5">
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#4547</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="avatar-pos" href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><img class="avatar avatar-img" src="../../assets/admin_img/profiles/avatar-06.jpg" alt="User Image"></a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. Linda</a>
+                                            </h2>
+                                        </td>
+                                        <td>Gyanoclogist</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>545</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status5">
+                                                <input type="checkbox" class="toggle-switch-input" id="status5">
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#8775</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="avatar-pos" href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><img class="avatar avatar-img" src="../../assets/admin_img/profiles/avatar-04.jpg" alt="User Image"></a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. Sofia Brient</a>
+                                            </h2>
+                                        </td>
+                                        <td>Hair Specialities</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>654</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status6">
+                                                <input type="checkbox" class="toggle-switch-input" id="status6" checked>
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#7364</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a class="avatar-pos" href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal"><img class="avatar avatar-img" src="../../assets/admin_img/profiles/avatar-10.jpg" alt="User Image"></a>
+                                                <a href="javascript:void(0);" data-bs-target="#doctorlist" data-bs-toggle="modal" class="user-name">Dr. Richard</a>
+                                            </h2>
+                                        </td>
+                                        <td>Cardiologist</td>
+                                        <td><span class="user-name">26 November 2022 </span><span class="d-block">12/20/2022</span></td>
+                                        <td>654</td>
+                                        <td>$300.00</td>
+                                        <td>
+                                            <label class="toggle-switch" for="status7">
+                                                <input type="checkbox" class="toggle-switch-input" id="status7" checked>
+                                                <span class="toggle-switch-label">
+                                                    <span class="toggle-switch-indicator"></span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tablepagination"  class="dataTables_wrapper"></div>
+            </div>
+        </div>
+        <!-- /Doctor List -->
+    </div>
+</div>
+<!-- /Page Wrapper -->
+
+<!-- Modal -->
+<div class="modal fade contentmodal" id="doctorlist" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-profile">
+            <div class="modal-header justify-content-center border-bottom-0">
+                <h4 class="modal-title">Doctor Details</h4>
+                <button type="button" class="close-btn pos-top" data-bs-dismiss="modal" aria-label="Close"><x-circle-icon size="1.4x" class="custom-class"></x-circle-icon></button>
+            </div>
+            <div class="modal-body">
+                <div class="media d-flex align-items-center justify-content-between">
+                    <div class="flex-shrink-0 d-flex align-items-center">
+                        <img src="../../assets/img/doctors/doctor-09.jpg" alt="" class="doctor">
+                        <div class="doc-info">											
+                            <div class="docs-id"> #454445</div>
+                            <h3>Dr. Rayan miller</h3>
+                            <p>BDS, MDS - Oral & Maxillofacial Surgery</p>
+                        </div>	
+                    </div>
+                    <div class="media-body">								
+                        <div class="ratings">
+                            <p><i class="fas fa-star filled mr-1"></i>4.5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-wrapper">
+                    <h5>Details</h5>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Member Since</h6>
+                                <p>Nov 21, 2022</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Speciality</h6>
+                                <p>Dentist</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Consultation Fees</h6>
+                                <p>$100 / Consultation</p>
+                            </div>
+                        </div>
+                    </div>                            
+                </div>
+                <div class="member-wrapper">
+                    <h5>Personal Information</h5>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Gender</h6>
+                                <p>Male</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Date of Birth</h6>
+                                <p>21, Dec 2022</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Location</h6>
+                                <p>Newyork, USA</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Phone Number</h6>
+                                <p>+1 5454 2154 4545</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mem-info">
+                                <h6>Email ID</h6>
+                                <p>Doctor@Doccure.com</p>
+                            </div>
+                        </div>
+                    </div>                            
+                </div>
+                <div class="lang-wrap">
+                    <p>No of Consultation / Cancelled : <span>85/21</span></p>
+                    <p>Total Income Earned  :  <span>$4,544,784</span></p>
+                </div>
+                <div class="submit-section">
+                    <a data-bs-dismiss="modal" data-bs-toggle="modal" href="#editModal" class="btn btn-primary me-2">Edit</a>
+                    <a data-bs-dismiss="modal" data-bs-toggle="modal" href="#deleteModal" class="btn btn-secondary">Delete Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal -->
+
+<!-- Modal -->
+<div class="modal fade contentmodal" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-profile">
+            <div class="modal-header">
+                <h3 class="mb-0">Edit Doctor</h3>
+                <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close"><x-circle-icon size="1.4x" class="custom-class"></x-circle-icon></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="add-wrap">
+                        <div class="form-group form-focus">
+                            <input type="text" class="form-control floating" value="Dr. Rayan miller">
+                            <label class="focus-label">Doctor Name <span class="text-danger">*</span></label>
+                        </div>
+                        <label class="mb-1">Doctor Image</label>
+                        <div class="change-photo-btn">
+                            <div><upload-icon size="1.4x" class="custom-class"></upload-icon>
+                            <p>Upload File</p></div>
+                            <input type="file" class="upload">
+                            <span class="file-upload-text"></span>
+                        </div>
+                        <p class="file-name text-success">Successfully Product image.jpg uploaded <a href="javascript:void(0);" class="text-danger"><x-icon size="1.4x" class="custom-class"></x-icon></a></p>
+                        <div class="form-group">
+                            <select class="select">
+                                <option>Select Speciality</option>
+                                <option>Dentist</option>
+                                <option selected>Neurology</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-focus">
+                            <input type="text" class="form-control floating" value="$330.00">
+                            <label class="focus-label">Consultation Fees <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-group form-focus">
+                            <input type="text" class="form-control floating" value="Newyork, USA">
+                            <label class="focus-label">Location <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-group form-focus">
+                            <input type="text" class="form-control floating" value="+1 5454 2154 4545">
+                            <label class="focus-label">Phone <span class="text-danger">*</span></label>
+                        </div>
+                        <NuxtLink to="/admin/doctor-list">
+                        <div class="submit-section">
+                            <button type="submit" class="btn btn-primary btn-save">Save Changes</button>
+                        </div>		
+                        </NuxtLink>						
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal -->
+
+<!-- Modal -->
+<div class="modal fade contentmodal" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-profile">
+            <div class="modal-header border-bottom-0 justify-content-end">
+                <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close"><x-circle-icon size="1.4x" class="custom-class"></x-circle-icon></button>
+            </div>
+            <div class="modal-body">
+                <div class="delete-wrap text-center">
+                    <form>
+                        <div class="del-icon"><x-circle-icon size="1.4x" class="custom-class"></x-circle-icon></div>
+                        <h2>Sure you Want to delete</h2>
+                        <p>“Doctor”</p>
+                        <NuxtLink to="/admin/doctor-list">
+                        <div class="submit-section">
+                            <button type="submit" class="btn btn-success me-2">Yes</button>
+                            <a href="javascript:void(0);" class="btn btn-danger" data-bs-dismiss="modal">No</a>
+                        </div>
+                    </NuxtLink>	
+                    </form>								
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal -->
+<Nuxt />
+</div>
+</template>
+<script>
+    import { ChevronDownIcon } from 'vue-feather-icons'
+    import { FilterIcon } from 'vue-feather-icons'
+    import { UserIcon } from 'vue-feather-icons'
+    import { UploadIcon } from 'vue-feather-icons'
+    import { XIcon } from 'vue-feather-icons'
+    import { XCircleIcon } from 'vue-feather-icons'
+    export default {
+        components: {
+    ChevronDownIcon,
+    FilterIcon,
+    UserIcon,
+    UploadIcon,
+    XIcon,
+    XCircleIcon
+  },
+        mounted() {
+            if ($('.select').length > 0) {
+		$('.select').select2({
+			minimumResultsForSearch: -1,
+			width: '100%'
+		});
+	}
+            if ($('#data-table').length > 0) {
+		$('#data-table').DataTable({
+			"language": {
+				search: ' ',
+				searchPlaceholder: "Search...",
+				paginate: {
+				  next: 'Next <i class="fas fa-chevron-right ms-2"></i>',
+				  previous: '<i class="fas fa-chevron-left me-2"></i> Previous'
+			  
+				}
+			 },
+			"bFilter": true,
+			"bInfo": false,
+			"bLengthChange": false,
+			initComplete: (settings, json)=>{
+				$('.dataTables_paginate').appendTo('#tablepagination');
+				$('.dataTables_filter').appendTo('#tableSearch');
+			},		
+		});
+	}
+    if($('.SortBy').length > 0) {
+		var show = true;
+		var checkbox1 = document.getElementById("checkBox");
+		$('.selectBoxes').on("click", function() {
+			
+			if (show) {
+				checkbox1.style.display = "block";
+				show = false;
+			} else {
+				checkbox1.style.display = "none";
+				show = true;
+			}
+		});		
+	}
+        },
+        layout: 'admin',
+        computed: {
+           currentPath() {
+               return this.$route.name
+           },
+        }
+    }
+    </script>

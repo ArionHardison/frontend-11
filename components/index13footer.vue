@@ -1,0 +1,168 @@
+<template>
+    <div>
+	<!-- Footer Four -->
+    <footer class="footer footer-four" style="font-family: 'Poppins',sans-serif !important;
+font-size: 16px !important;
+font-weight: 400 !important;
+color: #3E5463 !important;">
+        <div class="news-section-four">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="news-info">
+                            <h2>Subscribe to our Newsletter</h2>
+                            <p>Subscribe today for our exclusive offers, latest news and updates about health care programs.</p>
+                        </div>
+                        <div class="footer-news-four">
+                            <form>
+                                <div class="form-group mb-0">
+                                    <input type="text" class="form-control" placeholder="Enter Your Email Address">
+                                    <button type="submit" class="btn btn-one">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Top -->
+        <div class="footer-top aos" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Contact Us</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address"><span><map-pin-icon size="1.4x" class="custom-class"></map-pin-icon></span>
+                                    <p>3556 Beech Street, San Francisco,
+                                        <br>California, CA <br>94108</p>
+                                </div>
+                                <p><phone-icon size="1.4x" class="custom-class"></phone-icon>
+                                    +1 315 369 5943</p>
+                                <p class="mb-0"><mail-icon size="1.4x" class="custom-class"></mail-icon>
+                                    doccure@example.com</p>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Patients</h2>
+                            <ul>
+                                <li><NuxtLink to="/search">Search for Doctors</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/login">Login</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/register">Register</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/booking">Booking</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/patient-dashboard">Patient Dashboard</NuxtLink>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Doctors</h2>
+                            <ul>
+                                <li><NuxtLink to="/appointments">Appointments</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/chat">Chat</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/login">Login</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/doctor-register">Register</NuxtLink>
+                                </li>
+                                <li><NuxtLink to="/doctor-dashboard">Doctor Dashboard</NuxtLink>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">Social Network</h2>
+                            <ul>
+                                <li><a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook me-2"></i> Facebook</a>
+                                </li>
+                                <li><a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter me-2"></i> Twitter</a>
+                                </li>
+                                <li><a href="javascript:void(0);" target="_blank"><i class="fab fa-linkedin me-2"></i> Linkedin</a>
+                                </li>
+                                <li><a href="javascript:void(0);" target="_blank"><i class="fab fa-instagram me-2"></i> Instagram</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Footer Top -->
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <!-- Copyright -->
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="copyright-text">
+                                <p class="mb-0">&copy; 2022 Doccure. All rights reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <!-- Copyright Menu -->
+                            <div class="copyright-menu">
+                                <ul class="policy-menu">
+                                    <li><NuxtLink to="/term-condition">Terms and Conditions</NuxtLink>
+                                    </li>
+                                    <li><NuxtLink to="/privacy-policy">Policy</NuxtLink>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /Copyright Menu -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /Copyright -->
+            </div>
+        </div>
+        <!-- /Footer Bottom -->
+    </footer>
+    <!-- /Footer One-->
+    </div>
+</template>
+<script>
+import AOS from 'aos';
+import { MapPinIcon } from 'vue-feather-icons'
+import { PhoneIcon } from 'vue-feather-icons'
+import { MailIcon } from 'vue-feather-icons'
+export default {
+    components: {
+    MapPinIcon,
+    PhoneIcon,
+    MailIcon
+  },
+	mounted() {
+		if($('.main-wrapper .aos').length > 0) {
+	    AOS.init({
+		  duration: 1200,
+		  once: true,
+		});
+	}
+	},
+	computed: {
+       currentPath() {
+           return this.$route.name
+	   },
+	}
+}
+</script>
